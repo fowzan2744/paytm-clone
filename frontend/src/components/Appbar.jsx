@@ -28,7 +28,27 @@ export const Appbar = () => {
 
   return (
     <div className="shadow h-16 flex justify-between items-center px-4 relative">
-      <div className="text-lg font-semibold">bayTM App</div>
+      <div className="text-center ">
+  <svg
+      className="w-20 h-10 sm:w-60 sm:h-24 md:w-80 md:h-28 lg:w-[250px] lg:h-[250px]"
+      viewBox="0 0 220 60"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <text
+        x="10"
+        y="45"
+        fontFamily="Arial, sans-serif"
+        fontWeight="bold"
+        fontSize="40"
+      >
+        <tspan fill="#002970">p</tspan>
+        <tspan fill="#00baf2">a</tspan>
+        <tspan fill="#002970">y</tspan>
+        <tspan fill="#00baf2">TM</tspan>
+      </text>
+    </svg>
+    </div>
       <div className="flex items-center gap-3 relative">
         <div className="flex flex-col items-end mr-2">
           <span className="text-xs text-gray-500">Signed in as</span>

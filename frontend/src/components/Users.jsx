@@ -41,7 +41,7 @@ function User({user}) {
                     {user.firstName[0]}
                 </div>
             </div>
-            <div className="flex flex-col justify-center h-ful">
+            <div className="flex flex-col justify-center h-ful text-xl font-light underline">
                 <div>
                     {user.firstName} {user.lastName}
                 </div>
