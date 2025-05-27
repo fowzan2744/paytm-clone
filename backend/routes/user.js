@@ -112,7 +112,8 @@ router.put("/", authMiddleware, async (req, res) => {
     })
 
     res.json({
-        message: "Updated successfully"
+        message: "Updated successfully",
+        id: req.userId
     })
 })
 

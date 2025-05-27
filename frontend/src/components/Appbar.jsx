@@ -26,6 +26,10 @@ export const Appbar = () => {
     window.location.href = "/signin";
   };
 
+  const handleUpdate = () => {
+    window.location.href = "/update";
+  };
+
   return (
     <div className="shadow h-16 flex justify-between items-center px-4 relative">
       <div className="text-center ">
@@ -71,6 +75,14 @@ export const Appbar = () => {
               >
                 Logout
               </button>
+
+              <button
+                className="block w-full text-left px-4 py-4 hover:bg-gray-100"
+                onClick={handleUpdate}
+              >
+                Change Password
+              </button>
+
             </div>
           )}
         </div>
