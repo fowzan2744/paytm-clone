@@ -82,7 +82,7 @@ router.put("/withdraw", authMiddleware, async (req, res) => {
         });
     }
 
-    amount = -amount;
+    amount = (-1.0)*amount;
 
     try {
         const result = await Account.updateOne(
