@@ -72,7 +72,6 @@ router.put("/deposit", authMiddleware, async (req, res) => {
     }
 });
 
-
 router.put("/withdraw", authMiddleware, async (req, res) => {
     const { amount } = req.body;
 
@@ -82,17 +81,34 @@ router.put("/withdraw", authMiddleware, async (req, res) => {
         });
     }
 
-    amount = (-1.0)*amount;
-
     try {
+        // Find the user's account
+        const account = await Account.findOne({ userId: req.userId });
+
+        if (!account) {
+            return res.status(404).json({
+                message: "Account not found"
+            });
+        }
+
+        // Check if balance is sufficient
+        if (account.balance < amount) {
+            return res.status(400).json({
+                message: "Insufficient balance"
+            });
+        }
+
+        // Proceed with withdrawal (subtract amount)
+        const withdrawAmount = -1.0 * amount;
+
         const result = await Account.updateOne(
             { userId: req.userId },
-            { $inc: { balance: amount } }
+            { $inc: { balance: withdrawAmount } }
         );
 
         if (result.modifiedCount === 0) {
-            return res.status(404).json({
-                message: "Account not found"
+            return res.status(500).json({
+                message: "Failed to update account balance"
             });
         }
 
@@ -106,6 +122,7 @@ router.put("/withdraw", authMiddleware, async (req, res) => {
         });
     }
 });
+
 
 router.post("/transfer", authMiddleware, async (req, res) => {
     const session = await mongoose.startSession();
