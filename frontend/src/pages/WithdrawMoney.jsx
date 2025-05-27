@@ -22,7 +22,7 @@ export const WithdrawMoney = () => {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "https://paytm-clone-backend-d7xc.onrender.com/api/v1/account/deposit", 
+        "https://paytm-clone-backend-d7xc.onrender.com/api/v1/account/withdraw", 
         { amount: numericAmount }, 
         {
           headers: {
