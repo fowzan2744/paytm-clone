@@ -34,14 +34,14 @@ export const Users = () => {
 function User({user}) {
     const navigate = useNavigate();
 
-    return <div className="flex justify-between">
+    return <div className="bg-gradient-to-r from-blue-200 to-gray-200 flex justify-between shadow-sm rounded-lg p-2 my-2"> 
         <div className="flex">
             <div className="rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2">
                 <div className="flex flex-col justify-center h-full text-xl">
                     {user.firstName[0]}
                 </div>
             </div>
-            <div className="flex flex-col justify-center h-ful text-xl font-light underline">
+            <div className="flex flex-col justify-center h-ful text-xl font-semibold italic">
                 <div>
                     {user.firstName} {user.lastName}
                 </div>

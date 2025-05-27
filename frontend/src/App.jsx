@@ -8,6 +8,8 @@ import { Signin } from "./pages/Signin";
 import { Dashboard } from "./pages/Dashboard";
 import { SendMoney } from "./pages/SendMoney";
 import { UpdateProfile } from "./pages/UpdateProfile";
+import { DepositMoney } from "./pages/DepositMoney";
+import { WithdrawMoney } from "./pages/WithdrawMoney";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/send" element={<SendMoney />} />
       <Route path="/update" element={<UpdateProfile />} />
+      <Route path="/deposit" element={<DepositMoney />} />
+      <Route path="/withdraw" element={<WithdrawMoney/>} />
       </Routes>
       </BrowserRouter>
     </div>

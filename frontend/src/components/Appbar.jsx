@@ -31,7 +31,7 @@ export const Appbar = () => {
   };
 
   return (
-    <div className="shadow h-16 flex justify-between items-center px-4 relative">
+    <div className="shadow h-16 flex justify-between items-center px-4 relative bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="text-center ">
   <svg
       className="w-20 h-10 sm:w-60 sm:h-24 md:w-80 md:h-28 lg:w-[250px] lg:h-[250px]"
@@ -53,7 +53,7 @@ export const Appbar = () => {
       </text>
     </svg>
     </div>
-      <div className="flex items-center gap-3 relative">
+      <div className="flex items-center gap-3 relative ">
         <div className="flex flex-col items-end mr-2">
           <span className="text-xs text-gray-500">Signed in as</span>
           <span className="text-sm font-medium">{email}</span>

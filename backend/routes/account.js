@@ -73,6 +73,40 @@ router.put("/deposit", authMiddleware, async (req, res) => {
 });
 
 
+router.put("/withdraw", authMiddleware, async (req, res) => {
+    const { amount } = req.body;
+
+    if (typeof amount !== "number" || amount <= 0) {
+        return res.status(400).json({
+            message: "Invalid withdraw amount. Must be a positive number."
+        });
+    }
+
+    amount = -amount;
+
+    try {
+        const result = await Account.updateOne(
+            { userId: req.userId },
+            { $inc: { balance: amount } }
+        );
+
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({
+                message: "Account not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Withdraw successful"
+        });
+    } catch (err) {
+        console.error("Withdraw error:", err);
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+});
+
 router.post("/transfer", authMiddleware, async (req, res) => {
     const session = await mongoose.startSession();
 
