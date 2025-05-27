@@ -12,7 +12,7 @@ export const Appbar = () => {
       return;
     }
 
-    axios.get("http://localhost:3000/api/v1/user/me/", {
+    axios.get("https://paytm-clone-backend-d7xc.onrender.com/api/v1/user/me/", {
       headers: { Authorization: `Bearer ${token}` }
     }).then(response => {
       setEmail(response.data.email);

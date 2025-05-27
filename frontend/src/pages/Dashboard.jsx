@@ -12,7 +12,7 @@ export const Dashboard = () => {
     const fetchBalance = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+        const response = await axios.get("https://paytm-clone-backend-d7xc.onrender.com/api/v1/account/balance", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
